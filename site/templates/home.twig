@@ -1,0 +1,12 @@
+{% extends 'layouts/master' %}
+
+{% block title %}{{ skimpy.site.title }} - {{ skimpy.site.tagline }}{% endblock %}
+
+{% block header %}
+    <h1 id="site-title"><a href="{{ skimpy.url }}">{{ skimpy.site.title }}</a></h1>
+    <p id="site-tagline">{{ skimpy.site.tagline }}</p>
+{% endblock header %}
+
+{% block content %}
+    <h1>Skimpy CMS</h1>
+{% endblock content %}
