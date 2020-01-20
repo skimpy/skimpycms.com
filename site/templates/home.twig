@@ -1,5 +1,7 @@
 {% extends 'layouts/master' %}
 
+{% block metaDescription %}<meta name="description" content="{{ skimpy.site.meta_description }}">{% endblock %}
+
 {% block title %}{{ skimpy.site.title }} - {{ skimpy.site.tagline }}{% endblock %}
 
 {% block header %}
@@ -8,10 +10,15 @@
 {% endblock header %}
 
 {% block content %}
-    <div class="hero">
-        <a href="https://github.com/skimpy/cms/archive/master.zip">Download Skimpy 0.1.0</a>
+    <div class="download section">
+        <p>
+            Skimpy is file based CMS that is written with and runs on PHP (Lumen). It is NOT a static site generator. Generators are cumbersome tools. Skimpy is easy to use. You just create a file, and there it is. Skimpy is so easy to use that it will likely be the easiest CMS/blogging tool that you've ever tried. Don't believe me? Give it a shot.
+        </p>
+        <div>
+            <a href="{{ skimpy.url('docs') }}">Get Started</a>
+        </div>
     </div> <!-- .hero -->
-    <div class="features">
+    <div class="features sections">
         <div class="feature">
             <div class="feature-header">
                 <h4>Easy Content Creation</h4>
@@ -43,4 +50,17 @@
             </ul>
         </div> <!-- .feature -->
     </div>
+    <div class="docs section">
+        <h2><a class="link-no-style" href="{{ skimpy.url('docs') }}">Get Started</a></h2>
+        <a href="{{ skimpy.url('docs') }}">Read the Docs</i></a>
+    </div> <!-- .docs -->
 {% endblock content %}
+
+{% block footer %}
+    <h4>Monthly Newsletter</h4>
+    <p>Get updates on new Skimpy features. We have a lot of cool stuff planned!</p>
+    <form>
+        <input type="email" name="email" placeholder="you@example.com" />
+        <button>Subscribe</button>
+    </form>
+{% endblock %}

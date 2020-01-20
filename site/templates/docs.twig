@@ -1,0 +1,168 @@
+{% extends 'layouts/master' %}
+
+{% block content %}
+    <aside class="sidebar">
+        <div class="section download">
+            <a class="btn btn-md" href="https://skimpycms.com/download/latest">Download Latest</a>
+        </div>
+        <div class="section links-list">
+            <a href="#introduction">Introduction</a>
+            <a href="#quick-video-overview">Quick Video Overview</a>
+            <a href="#installation">Installation</a>
+            <a href="#creating-a-blog-post">Creating a Blog Post</a>
+            <a href="#adding-front-matter">Adding Front Matter</a>
+            <a href="#creating-a-page">Creating a Page</a>
+            <a href="#categorizing-content">Categorizing Content</a>
+            <a href="#tagging-content">Tagging Content</a>
+            <a href="#creating-page-types">Creating Page Types</a>
+            <a href="#index-pages">Index Pages</a>
+            <a href="#custom-templates">Custom Templates</a>
+            <a href="#template-hierarchy">Template Hierarchy</a>
+            <a href="#how-does-skimpy-work">How does Skimpy work?</a>
+        </div>
+    </aside>
+
+    <article>
+        <header>
+            <h1>Documentation</h1>
+        </header>
+
+        <div class="section" id="introduction">
+            <h4>Introduction</h4>
+            <p>
+                Skimpy is a simple file based CMS that can be used to make a website or blog. Skimpy is built for developers,
+                though anyone who can create files and put a PHP site on the internet can use it.
+            </p>
+            <p>
+                The philosophy behind Skimpy is simplicity and ease of use. As simple as Skimpy is to use,
+                it is actually very powerful under the hood and there is much more you can do with it than is documented at this time.
+                Skimpy runs on the <a href="https://lumen.laravel.com/">Lumen PHP framework</a>.
+            </p>
+            <p>
+                Skimpy also uses <a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/2.10/index.html">Doctrine DBAL</a> and
+                <a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/index.html">Doctrine ORM</a>under the hood. When a
+                request hits your website, Skimpy scans all of the files in your <code>site/content</code> directory, converts them to Doctrine entities,
+                and shoves them in an sqlite database that you don't have to care about or pay any attention to if you don't want.
+            </p>
+        </div>
+
+        <div class="section" id="quick-video-overview">
+            <h4>Quick Video Overview</h4>
+            <img src="https://placehold.it/560x315" />
+        </div>
+
+        <div class="section" id="installation">
+            <h4>Installation</h4>
+
+            <div>
+                <a class="btn btn-large" href="https://skimpycms.com/download/latest">Download Latest</a>
+            </div>
+
+            <ol>
+                <li>Unzip the installation</li>
+                <li><code>cd path/to/unzipped/skimpy; php -S localhost:4000 -t public</code></li>
+                <li>Visit http://localhost:4000</li>
+            </ol>
+
+            <p>You may also clone the <a href="https://github.com/skimpy/cms">skimpy/cms</a> repo and then run composer install.</p>
+        </div>
+
+        <div class="section" id="creating-a-blog-post">
+            <h4>Creating a Blog Post</h4>
+            <a href="#">Video Explanation</a>
+            <ol>
+                <li>Create a new markdown file called <code>test-post.md</code> inside the <code>site/content</code> directory.</li>
+                <li>Visit <code>http://localhost:4000/test-post</code> and voila!</li>
+                <li>Add a markdown header to the file <code># Test Header</code> and refresh. You'll see an h1 tag that reads "Test Header".</li>
+            </ol>
+        </div>
+
+        <div class="section" id="adding-front-matter">
+            <h4>Adding Front Matter</h4>
+            <a href="#">Video Explanation</a>
+            <ul>
+                <li>title - Custom title if different from the filename</li>
+                <li>date - The published data of the content</li>
+                <li>seoTitle - The content to put in the head title tag</li>
+                <li>categories - The categories the content belongs to</li>
+                <li>tags - The tags to assign to the content</li>
+                <li>Front Matter Metadata - Any key/value you put in front matter that isn't built in will be stored as metadata.</li>
+            </ul>
+            <code>
+                title: Foo
+                date: 2020-01-19
+                seoTitle: click this
+                categories: [Web Development, Unix]
+                tags: [Mac OS]
+                pets: [Lars Vader]
+            </code>
+        </div>
+
+        <div class="section" id="creating-a-page">
+            <h4>Creating a Page</h4>
+            <a href="#">Video Explanation</a>
+        </div>
+
+        <div class="section" id="categorizing-content">
+            <h4>Categorizing Content</h4>
+            <a href="#">Video Explanation</a>
+        </div>
+
+        <div class="section" id="tagging-content">
+            <h4>Tagging Content</h4>
+            <a href="#">Video Explanation</a>
+        </div>
+
+        <div class="section" id="creating-page-types">
+            <h4>Creating Page Types</h4>
+            <a href="#">Video Explanation</a>
+        </div>
+
+        <div class="section" id="index-pages">
+            <h4>Index Pages</h4>
+            <a href="#">Video Explanation</a>
+        </div>
+
+        <div class="section" id="custom-templates">
+            <h4>Custom Templates</h4>
+            <a href="#">Video Explanation</a>
+        </div>
+
+        <div class="section" id="template-hierarchy">
+            <h4>Template Hierarchy</h4>
+            <a href="#">Video Explanation</a>
+            <ol>
+                <li>FrontMatter key <code>template: your-template-name</code></li>
+                <li>The parent folder name if the file is in a subdirectory of content</li>
+                <li>If the file is an index (index.md), the index template.</li>
+                <li>The entity type (entry, taxonomy, term)</li>
+            </ol>
+        </div>
+
+        <div class="section" id="how-does-skimpy-work">
+            <h4>How does Skimpy work?</h4>
+            <p>
+                When a request hits your website, Skimpy scans all of the files in your <code>site/content</code> directory, converts them to Doctrine entities, and
+                shoves them into an sqlite database. You don't have to pay any attention to the database at all if you don't want. The reason Skimpy
+                converts your content into database records is so that it can take advantage of all of the power of doctrine and SQL in general. The database
+                component in Skimpy is used more like a cache. You should never be editing your databse directly as Skimpy will just wipe out any changes
+                you made automatically the next time your website receives a request.
+            </p>
+            <p>
+                Skimpy uses Doctrine and a database for several reasons. But the primary reason for the DB is so that you don't have to "generate" your actual
+                website everytime you make changes to your content, or run a "watch" command that generates the changes when you save a file. Doing
+                things the generate way is just nonsense. Generating adds complexity to creating a website or blog. Writing and adding content should be mindless
+                and that's what Skimpy sets out to accomplish.
+            </p>
+            <p>
+                You may be wondering about speed. One of the reasons generators like Jekyll got so popular to begin with is because people thought it was cool
+                that the server wouldn't have to do any work other than serving up HTML and therefore the site would be really fast. The internet is pretty fast
+                these days as is PHP. It really doesn't take much time to read the filesystem and make inserts into an sqlite database. Unless your site is extremely high traffic and
+                you have hundreds of posts, you need not be concerned about speed at all. BUT, if you do end up with a high traffic site with a lot of content,
+                you can still use Skimpy at blazing speeds. You'll just have to turn auto generation off and hit a particular URL on your production site with your private
+                build key passed in through a URL parameter. The URL to hit and how to set the key is not documented yet. The feature does exist in the core code though.
+                I will document it soon.
+            </p>
+        </div>
+    </article>
+{% endblock content %}

@@ -1,0 +1,2 @@
+seoTitle: Documentation | Skimpy CMS
+---
