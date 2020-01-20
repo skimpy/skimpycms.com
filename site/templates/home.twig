@@ -8,5 +8,39 @@
 {% endblock header %}
 
 {% block content %}
-    <h1>Skimpy CMS</h1>
+    <div class="hero">
+        <a href="https://github.com/skimpy/cms/archive/master.zip">Download Skimpy 0.1.0</a>
+    </div> <!-- .hero -->
+    <div class="features">
+        <div class="feature">
+            <div class="feature-header">
+                <h4>Easy Content Creation</h4>
+                <p>Want to create a new page or post?</p>
+            </div>
+            <ul>
+                <li>Just create a new markdown file and your done</li>
+                <li>All of your content and configuration is file based for easy version control</li>
+            </ul>
+        </div> <!-- .feature -->
+        <div class="feature">
+            <div class="feature-header">
+                <h4>Categories & Tags</h4>
+                <p>Building a blog?</p>
+            </div>
+            <ul>
+                <li>Use YAML to define categories & tags</li>
+                <li>Assign categories and tags with YAML front matter in your content files</li>
+            </ul>
+        </div> <!-- .feature -->
+        <div class="feature">
+            <div class="feature-header">
+                <h4>Powerful Templating with Twig</h4>
+                <p>Need custom templates for different page/post types?</p>
+            </div>
+            <ul>
+                <li>Any content file under a directory will use the twig template with a name matching the directory name</li>
+                <li>You can override templates in individual files using YAML front matter</li>
+            </ul>
+        </div> <!-- .feature -->
+    </div>
 {% endblock content %}

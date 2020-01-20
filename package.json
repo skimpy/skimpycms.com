@@ -1,0 +1,23 @@
+{
+  "name": "skimpycms.com",
+  "version": "1.0.0",
+  "description": "Skimpy allows you to create a flat file based website or blog. It is not a static site generator.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skimpy/skimpycms.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skimpy/skimpycms.com/issues"
+  },
+  "homepage": "https://github.com/skimpy/skimpycms.com#readme",
+  "devDependencies": {
+    "laravel-mix": "^5.0.1"
+  }
+}
