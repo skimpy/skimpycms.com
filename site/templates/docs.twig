@@ -39,10 +39,7 @@
                 Skimpy runs on the <a href="https://lumen.laravel.com/">Lumen PHP framework</a>.
             </p>
             <p>
-                Skimpy also uses <a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/2.10/index.html">Doctrine DBAL</a> and
-                <a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/index.html">Doctrine ORM</a> under the hood. When a
-                request hits your website, Skimpy scans all of the files in your <code>site/content</code> directory, converts them to Doctrine entities,
-                and shoves them in an sqlite database that you don't have to care about or pay any attention to if you don't want.
+                See the final documentation section for more details on how Skimpy actually works.
             </p>
         </div> <!-- .section -->
 
@@ -54,22 +51,33 @@
         <div class="section" id="installation">
             <h4>Installation</h4>
 
+            <div class="video">
+                <a href="#">Video Explanation</a>
+            </div>
+
             <div>
                 <a class="btn btn-large" href="https://skimpycms.com/download/latest">Download Latest</a>
             </div>
 
             <ol>
                 <li>Unzip the installation</li>
-                <li><code>cd path/to/unzipped/skimpy; php -S localhost:4000 -t public</code></li>
+                <li><code>cd path/to/unzipped/skimpy;</code></li>
+                <li><code>cp .env.example .env</code></li>
+                <li>Update the .env file to match your preferences/info</li>
+                <li><code>php -S localhost:4000 -t public</code></li>
                 <li>Visit http://localhost:4000</li>
             </ol>
 
-            <p>You may also clone the <a href="https://github.com/skimpy/cms">skimpy/cms</a> repo and then run <codee>composer install.</code></p>
+            <p>You may also clone the <a href="https://github.com/skimpy/cms">skimpy/cms repo</a>and then run <codee>composer install.</code></p>
         </div> <!-- .section -->
 
         <div class="section" id="creating-a-blog-post">
             <h2>Creating a Blog Post</h2>
-            <a href="#">Video Explanation</a>
+
+            <div class="video">
+                <a href="#">Video Explanation</a>
+            </div>
+
             <ol>
                 <li>Create a new markdown file called <code>test-post.md</code> inside the <code>site/content</code> directory.</li>
                 <li>Visit <code>http://localhost:4000/test-post</code> and voila!</li>
@@ -85,7 +93,11 @@
             <div class="alert alert-info">
                 <p>Always use exactly three hyphens "---" to separate front matter from content. Otherwise, you'll get an exception or your file won't parse correctly.
             </div>
-            <a href="#">Video Explanation</a>
+
+            <div class="video">
+                <a href="#">Video Explanation</a>
+            </div>
+
             <table>
                 <caption>Native Front Matter Keys</caption>
                 <thead>
@@ -131,15 +143,15 @@
                 <p>Any key/value you put in front matter that isn't built in will be stored as metadata.</p>
                 <p>You can access any custom front matter key values in your templates.</p>
                 <p>The "restaurants" key in the example file below is an example of metadata.</p>
-            </div>
+            </div> <!-- .info-box -->
 
             <div class="info-box">
                 <h4>Accessing FrontMatter Metadata in Templates</h4>
                 <p>Call the "meta" method on the entry object and pass in the key you want.</p>
                 <code>{{ "{{ entry.meta('restaurants') }}"}}</code>
-            </div>
+            </div> <!-- .info-box -->
 
-            <div class="example">
+            <div class="example-file">
                 <h4>Example Content File With Front Matter</h4>
                 <pre>
 title: My 2019 Trip to Germany
@@ -157,9 +169,14 @@ The content for the post goes here...
 
         <div class="section" id="creating-a-page">
             <h2>Creating a Page</h2>
+
+            <div class="video">
+                <a href="#">Video Explanation</a>
+            </div>
+
             <p>
                 Skimpy sites don't have to be blogs at all but it does make blogging easy if that's what you are doing.
-                Before we explain "pages" in Skimpy, let's first define what a page is. Both pages and posts are just files that hold
+                Before I explain "pages" in Skimpy, let's first define what a page is. Both pages and posts are just files that hold
                 content for display when someone hits the matching URI. The only difference between a "page" and a "post" is that people
                 don't typically display an index of pages like they do blog posts. Pages are not usually listed on the home screen with "excerpts" like
                 blog posts and pages aren't really meant to be categorized or tagged.
@@ -168,45 +185,85 @@ The content for the post goes here...
                 So if you would like to create an "entry" on your site
                 that doesn't show up in your blog feed, then you want to create a page. This is accomplished by creating a subdirectory under
                 the content directory and placing any files that you want to be a "page" inside that directory. You can call the directory anything
-                you want but the directory name will be part of the URI to access the page.
+                you want but keep in mind the directory name will be part of the URI to access the page.
             </p>
             <p>
                 You may also exclude root entries from displaying on the home page or an index by manually changing the content type via the Front Matter
                 "type" key. This essentially is the same as placing the file in a subdirectory. Any file inside a subdirectory has a "type" property with
                 a value matching the name of the parent directory. Try and avoid using the "type" key if you can. Sites that follow the conventions
-                will be more well organized and easier to navigate.
+                will be more well organized and easier to navigate. You can always just make a "pages" directory and put your pages there. Having a URI
+                segment "pages" proceed the page URI really isn't any big deal.
             </p>
-            <a href="#">Video Explanation</a>
         </div> <!-- .section -->
 
         <div class="section" id="categorizing-content">
             <h2>Categorizing Content</h2>
-            <a href="#">Video Explanation</a>
+            <div class="video">
+                <a href="#">Video Explanation</a>
+            </div>
         </div> <!-- .section -->
 
         <div class="section" id="tagging-content">
             <h2>Tagging Content</h2>
-            <a href="#">Video Explanation</a>
+
+            <div class="video">
+                <a href="#">Video Explanation</a>
+            </div>
         </div> <!-- .section -->
 
         <div class="section" id="creating-page-types">
             <h2>Creating Page Types</h2>
-            <a href="#">Video Explanation</a>
+
+            <p>
+                Let's say you want to add a page for every person on your team and you want to list those people
+                on your "team" page.
+            </p>
+
+            <ol>
+                <li>Create folder <code>content/team</code></li>
+                <li>Create file <code>content/team/kevin-rose.md</code></li>
+                <li>Create file <code>content/team/tim-ferriss.md</code></li>
+                <li>Enable a "team index" by creating <code>content/team/index.md</code></li>
+                <li>
+                    The following URLs are now valid<br />
+                    <ul>
+                        <li><code>example.com/team</code> - Lists links to any file under the "team" directory</li>
+                        <li><code>example.com/team/kevin-rose</code></li>
+                        <li><code>example.com/team/tim-ferriss</code></li>
+                    </ul>
+                </li>
+            </ol>
+
+            <div class="video">
+                <a href="#">Video Explanation</a>
+            </div>
         </div> <!-- .section -->
 
         <div class="section" id="index-pages">
             <h2>Index Pages</h2>
-            <a href="#">Video Explanation</a>
+
+            <p>See the example for <a href="#creating-page-types">creating page types</a></p>
+
+            By default, there is no index for files inside a subfolder of the content directory.
+            To turn the index uri on, in other words to make the subfolder name a valid URI on your
+            website, you just create a file inside the subdirectory called <code>index.md</code>
         </div> <!-- .section -->
 
         <div class="section" id="custom-templates">
             <h2>Custom Templates</h2>
-            <a href="#">Video Explanation</a>
+
+            <div class="video">
+                <a href="#">Video Explanation</a>
+            </div>
         </div> <!-- .section -->
 
         <div class="section" id="template-hierarchy">
             <h2>Template Hierarchy</h2>
-            <a href="#">Video Explanation</a>
+
+            <div class="video">
+                <a href="#">Video Explanation</a>
+            </div>
+
             <ol>
                 <li>FrontMatter key <code>template: your-template-name</code></li>
                 <li>The parent folder name if the file is in a subdirectory of content</li>
@@ -218,26 +275,27 @@ The content for the post goes here...
         <div class="section" id="how-does-skimpy-work">
             <h2>How does Skimpy work?</h2>
             <p>
-                When a request hits your website, Skimpy scans all of the files in your <code>site/content</code> directory, converts them to Doctrine entities, and
-                shoves them into an sqlite database. You don't have to pay any attention to the database at all if you don't want. The reason Skimpy
-                converts your content into database records is so that it can take advantage of all of the power of doctrine and SQL in general. The database
-                component in Skimpy is used more like a cache. You should never be editing your databse directly as Skimpy will just wipe out any changes
-                you made automatically the next time your website receives a request.
+                When a request hits your website, Skimpy scans all of the files in your <code>site/content</code> directory, converts them to
+                <a href="https://www.doctrine-project.org/">Doctrine</a> entities, and shoves them into an sqlite database. You don't have to pay any
+                attention to the database at all if you don't want. The reason Skimpy converts your content into database records is so that it can take
+                advantage of all of the power of doctrine and SQL in general. The database component in Skimpy is used more like a cache.
+                You should never be editing your databse directly as Skimpy will just wipe out any changes you made automatically the next time your website receives a request.
             </p>
             <p>
-                Skimpy uses Doctrine and a database for several reasons. But the primary reason for the DB is so that you don't have to "generate" your actual
+                Skimpy uses Doctrine and a database for several reasons. The primary reason for the DB is so that you don't have to "generate" your actual
                 website everytime you make changes to your content, or run a "watch" command that generates the changes when you save a file. Doing
-                things the generate way is just nonsense. Generating adds complexity to creating a website or blog. Writing and adding content should be mindless
+                things the "generater way" is just nonsense. Generating adds complexity to creating a website or blog. Writing and adding content should be mindless
                 and that's what Skimpy sets out to accomplish.
             </p>
             <p>
                 You may be wondering about speed. One of the reasons generators like Jekyll got so popular to begin with is because people thought it was cool
                 that the server wouldn't have to do any work other than serving up HTML and therefore the site would be really fast. The internet is pretty fast
-                these days as is PHP. It really doesn't take much time to read the filesystem and make inserts into an sqlite database. Unless your site is extremely high traffic and
+                these days, as is PHP. It really doesn't take much time to read the filesystem and make inserts into an sqlite database. Unless your site is extremely high traffic and
                 you have hundreds of posts, you need not be concerned about speed at all. BUT, if you do end up with a high traffic site with a lot of content,
-                you can still use Skimpy at blazing speeds. You'll just have to turn auto generation off and hit a particular URL on your production site with your private
-                build key passed in through a URL parameter. The URL to hit and how to set the key is not documented yet. The feature does exist in the core code though.
-                I will document it soon.
+                you can still use Skimpy at blazing speeds. The Skimpy engine has the ability to turn auto generation off and has methods for triggering a build.
+                I haven't decided how I want the configuration to look so the feature is not documented yet. It will probably just be an environment variable that you
+                toggle. Then you can just leave it off in production and when you push your site, you push your sqlite databae with it so it's automatically up to date.
+                Then you won't ever have to run a build command in dev and production is still easily updated.
             </p>
         </div> <!-- .section -->
     </article>
