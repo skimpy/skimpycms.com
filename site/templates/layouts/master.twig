@@ -8,20 +8,24 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             {% block metaDescription %}{% endblock %}
             <meta name="author" content="{{ skimpy.site.author }}">
+            <link rel="stylesheet" type="text/css" href="css/site.css" />
         {% endblock head %}
     </head>
     <body>
-        <header>
+        <header id="site-header">
             {% block header %}
-                <p><a href="{{ skimpy.url }}">{{ skimpy.site.title }}</a></p>
-                <p>{{ skimpy.site.tagline }}</p>
+                <p id="site-title"><a href="{{ skimpy.url }}">{{ skimpy.site.title }}</a></p>
+                <p id="site-tagline">{{ skimpy.site.tagline }}</p>
+                <div id="site-logo">
+                    <a href="{{ skimpy.url }}"><img alt="Skimpy Logo" src="img/skimpy-logo-blue.png" /></a>
+                </div>
             {% endblock header %}
         </header>
         <main>
             {% block content %}
             {% endblock content %}
         </main>
-        <footer>
+        <footer id="site-footer">
             {% block footer %}
             {% endblock footer %}
         </footer>

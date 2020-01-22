@@ -1,45 +1,34 @@
 {% extends 'layouts/master' %}
 
 {% block content %}
-    <aside class="sidebar">
-        <div class="section download">
-            <a class="btn btn-md" href="https://skimpycms.com/download/latest">Download Latest</a>
-        </div>
-        <nav class="section links-list">
-            <a href="#introduction">Introduction</a>
-            <a href="#quick-video-overview">Quick Video Overview</a>
-            <a href="#installation">Installation</a>
-            <a href="#creating-a-blog-post">Creating a Blog Post</a>
-            <a href="#adding-front-matter">Adding Front Matter</a>
-            <a href="#creating-a-page">Creating a Page</a>
-            <a href="#categorizing-content">Categorizing/Tagging Content</a>
-            <a href="#creating-page-types">Creating Page Types</a>
-            <a href="#index-pages">Index Pages</a>
-            <a href="#template-variables">Template Variables</a>
-            <a href="#template-hierarchy">Template Hierarchy</a>
-            <a href="#custom-templates">Custom Templates</a>
-            <a href="#how-does-skimpy-work">How does Skimpy work?</a>
-        </nav>
-    </aside>
-
     <article>
         <header>
             <h1>Documentation</h1>
+            <nav class="section links-list">
+                <a href="#introduction">Introduction</a>
+                <a href="#quick-video-overview">Quick Video Overview</a>
+                <a href="#installation">Installation</a>
+                <a href="#creating-a-blog-post">Creating a Blog Post</a>
+                <a href="#adding-front-matter">Adding Front Matter</a>
+                <a href="#creating-a-page">Creating a Page</a>
+                <a href="#categorizing-content">Categorizing/Tagging Content</a>
+                <a href="#creating-page-types">Creating Page Types</a>
+                <a href="#index-pages">Index Pages</a>
+                <a href="#template-variables">URI Mapping & Template Variables</a>
+                <a href="#template-hierarchy">Template Hierarchy</a>
+                <a href="#custom-templates">Custom Templates</a>
+                <a href="#how-does-skimpy-work">How does Skimpy work?</a>
+            </nav>
         </header>
 
         <div class="section" id="introduction">
             <h4>Introduction</h4>
             <p>
                 Skimpy is a simple file based CMS that can be used to make a website or blog. Skimpy is built for developers,
-                though anyone who can create files and put a PHP site on the internet can use it.
+                though anyone who can create files and put a PHP site on the internet can use it. Skimpy aims to be simple and easy to use.
             </p>
             <p>
-                The philosophy behind Skimpy is simplicity and ease of use. As simple as Skimpy is to use,
-                it is actually very powerful under the hood and there is much more you can do with it than is documented at this time.
-                Skimpy runs on the <a href="https://lumen.laravel.com/">Lumen PHP framework</a>.
-            </p>
-            <p>
-                See the final documentation section for more details on how Skimpy actually works.
+                See the final documentation section for details on how Skimpy actually works.
             </p>
         </div> <!-- .section -->
 
@@ -55,8 +44,8 @@
                 <a href="#">Video Explanation</a>
             </div>
 
-            <div>
-                <a class="btn btn-large" href="https://skimpycms.com/download/latest">Download Latest</a>
+            <div class="text-center">
+                <a class="btn btn-large btn-hero" href="https://skimpycms.com/download/latest">Download Latest</a>
             </div>
 
             <ol>
@@ -90,7 +79,10 @@
                     In the example above where we created "test-post", you can see that skimpy uses the filename as the URI to the post.
                     If you put the file inside a directory "products" and name the file "widget.md". The URI to the file will be <code>/products/widget</code>
                 </p>
-                <code>path/to/skimpy/site/content/products/widget.md => http://localhost:4000/products/widget</code>
+                <pre>
+path = path/to/skimpy/site/content/products/widget.md
+URL = http://localhost:4000/products/widget
+                </pre>
             </div> <!-- .info-box -->
         </div> <!-- .section -->
 
@@ -316,8 +308,8 @@ Your post content here...
             <p>
                 There are three types of "entities" in Skimpy - <code>entry</code>, <code>taxonomy</code>, and <code>term</code>.
                 The current URI determines what type of entity is queried and what the template variable names are.
-                You can determine what file is being displayed just by looking at the URI. The file structure
-                maps directly to the current URI. Just keep in mind when you create a taxonomy file, you are
+                You can determine what file is being displayed just by looking at the URI. <b>The file structure
+                maps directly to the current URI</b>. Just keep in mind when you create a taxonomy file, you are
                 creating a URL that matches the name of that file. When you create a directory inside content and you place
                 an index.md file in it, you are creating a URL that matches the path to that directory. If that isn't simple
                 enough for you, see the table below.

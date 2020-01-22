@@ -1,0 +1,172 @@
+html {
+    background: #fff;
+    color: #333;
+    padding-top: 30px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 16px;
+}
+
+body {
+    max-width: 600px;
+    padding: 0 30px;
+    margin: 0 auto;
+    line-height: 100%;
+    font-size: 16px;
+}
+
+h1,h2,h3,h5,h6,
+img, p {
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 150%;
+}
+
+h1 {
+    text-align: center;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin-bottom: 20px;
+    color: $primary;
+    line-height: 100%;
+    font-family: Courier, serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 34px;
+}
+
+h4 {
+    font-size: 28px;
+}
+
+a {
+    color: $secondary;
+    text-decoration: none;
+
+    &:hover {
+        color: $primaryDark;
+    }
+}
+
+b {
+    font-weight: 700;
+}
+
+ol, ul {
+    padding-left: 20px;
+}
+
+ol {
+    list-style: decimal;
+}
+
+ul {
+    list-style: disc;
+}
+
+li {
+    line-height: 150%;
+}
+
+code,
+pre {
+    background: #EFEFEF;
+    padding: 2px 5px;
+    color: #333;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    background: $primary;
+    color: $onPrimary;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    display: inline-block;
+
+    &:hover {
+        background: $secondary;
+        color: $onSecondary;
+    }
+}
+
+.btn-md {
+    font-size: 22px;
+    padding: 10px 12px;
+}
+
+.links-list {
+    padding: 5px 20px;
+
+    a {
+        display: block;
+        margin-bottom: 5px;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        &:before {
+            content: "# ";
+            color: $primary;
+        }
+    }
+}
+
+.section {
+    padding: 0px 0 30px;
+
+    h4 {
+        margin-bottom: 10px;
+    }
+}
+
+.video {
+    display: none;
+}
+
+.feature {
+    margin-bottom: 20px;
+
+    ul {
+        list-style: none;
+    }
+
+    h4 {
+        margin-bottom: 10px;
+        background: #EFEFEF;
+        color: #888;
+        padding: 5px 0 5px 18px;
+    }
+
+    p {
+        text-align: left;
+    }
+}
+
+#site-title,
+#site-tagline {
+    display: none;
+}
+
+#site-logo {
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+#site-footer {
+    padding-bottom: 40px;
+}
