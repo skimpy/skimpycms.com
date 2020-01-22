@@ -251,6 +251,21 @@ table {
     }
 }
 
+.newsletter {
+    margin-bottom: 40px;
+
+    input[type="email"] {
+        margin-bottom: 15px;
+        min-width: 200px;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}
+
 .github-logo {
     opacity: 0.5;
     width: 64px;
