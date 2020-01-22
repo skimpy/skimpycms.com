@@ -1,35 +1,37 @@
 {% extends 'layouts/master' %}
 
 {% block content %}
-    <article>
+    <article class="docs">
         <header>
             <h1>Documentation</h1>
-            <nav class="section links-list">
-                <a href="#introduction">Introduction</a>
-                <a href="#quick-video-overview">Quick Video Overview</a>
-                <a href="#installation">Installation</a>
-                <a href="#creating-a-blog-post">Creating a Blog Post</a>
-                <a href="#adding-front-matter">Adding Front Matter</a>
-                <a href="#creating-a-page">Creating a Page</a>
-                <a href="#categorizing-content">Categorizing/Tagging Content</a>
-                <a href="#creating-page-types">Creating Page Types</a>
-                <a href="#index-pages">Index Pages</a>
-                <a href="#template-variables">URI Mapping & Template Variables</a>
-                <a href="#template-hierarchy">Template Hierarchy</a>
-                <a href="#custom-templates">Custom Templates</a>
-                <a href="#how-does-skimpy-work">How does Skimpy work?</a>
+            <nav class="links-list">
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#quick-video-overview">Quick Video Overview</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#creating-a-blog-post">Creating a Blog Post</a></li>
+                    <li><a href="#adding-front-matter">Adding Front Matter</a></li>
+                    <li><a href="#creating-a-page">Creating a Page</a></li>
+                    <li><a href="#categorizing-content">Categorizing/Tagging Content</a></li>
+                    <li><a href="#creating-page-types">Creating Page Types</a></li>
+                    <li><a href="#index-pages">Index Pages</a></li>
+                    <li><a href="#template-variables">URI Mapping & Template Variables</a></li>
+                    <li><a href="#template-hierarchy">Template Hierarchy</a></li>
+                    <li><a href="#custom-templates">Custom Templates</a></li>
+                    <li><a href="#how-does-skimpy-work">How does Skimpy work?</a></li>
+                </ul>
             </nav>
         </header>
 
         <div class="section" id="introduction">
-            <h4>Introduction</h4>
+            <h2>Introduction</h2>
             <p>
                 Skimpy is a simple file based CMS that can be used to make a website or blog. Skimpy is built for developers,
                 though anyone who can create files and put a PHP site on the internet can use it. Skimpy aims to be simple and easy to use.
             </p>
-            <p>
+            <span>
                 See the final documentation section for details on how Skimpy actually works.
-            </p>
+            </span>
         </div> <!-- .section -->
 
         <div class="section" id="quick-video-overview">
@@ -38,26 +40,25 @@
         </div> <!-- .section -->
 
         <div class="section" id="installation">
-            <h4>Installation</h4>
+            <h2>Installation</h2>
 
             <div class="video">
                 <a href="#">Video Explanation</a>
             </div>
 
-            <div class="text-center">
-                <a class="btn btn-large btn-hero" href="https://skimpycms.com/download/latest">Download Latest</a>
-            </div>
 
-            <ol>
+            <a class="btn btn-large btn-hero" href="https://skimpycms.com/download/latest">Download Latest</a>
+
+            <ol style="margin-bottom: 20px;">
                 <li>Unzip the installation</li>
-                <li><code>cd path/to/unzipped/skimpy;</code></li>
+                <li><code>cd path/to/unzipped/skimpy</code></li>
                 <li><code>cp .env.example .env</code></li>
                 <li>Update the .env file to match your preferences/info</li>
                 <li><code>php -S localhost:4000 -t public</code></li>
                 <li>Visit http://localhost:4000</li>
             </ol>
 
-            <p>You may also clone the <a href="https://github.com/skimpy/cms">skimpy/cms repo</a>and then run <codee>composer install.</code></p>
+            <span>You may also clone the <a href="https://github.com/skimpy/cms">skimpy/cms repo</a> and then run <codee>composer install.</code></span>
         </div> <!-- .section -->
 
         <div class="section" id="creating-a-blog-post">
@@ -81,8 +82,7 @@
                 </p>
                 <pre>
 path = path/to/skimpy/site/content/products/widget.md
-URL = http://localhost:4000/products/widget
-                </pre>
+URL = http://localhost:4000/products/widget</pre>
             </div> <!-- .info-box -->
         </div> <!-- .section -->
 
@@ -155,7 +155,7 @@ URL = http://localhost:4000/products/widget
             <div class="info-box">
                 <h4>Accessing FrontMatter Metadata in Templates</h4>
                 <p>Call the "meta" method on the entry object and pass in the key you want.</p>
-                <code>{{ "{{ entry.meta('restaurants') }}"}}</code>
+                <p><code>{{ "{{ entry.meta('restaurants') }}"}}</code></p>
             </div> <!-- .info-box -->
 
             <div class="example-file">
@@ -194,7 +194,7 @@ The content for the post goes here...
                 the content directory and placing any files that you want to be a "page" inside that directory. You can call the directory anything
                 you want but keep in mind the directory name will be part of the URI to access the page.
             </p>
-            <p>
+            <p class="mb-0">
                 You may also exclude root entries from displaying on the home page or an index by manually changing the content type via the Front Matter
                 "type" key. This essentially is the same as placing the file in a subdirectory. Any file inside a subdirectory has a "type" property with
                 a value matching the name of the parent directory. Try and avoid using the "type" key if you can. Sites that follow the conventions
@@ -220,7 +220,7 @@ The content for the post goes here...
             <p>
                 Taxonomies have "terms". In the case of the "categories" taxonomy, the terms are the actual categories.
                 You add new categories by adding a new array to the terms key in the <code>content/taxonomies/categories.yaml</code>
-                file. You simple provide a name for the category and a slug to be used in the URI.
+                file. You simply provide a name for the category and a slug to be used in the URI.
             </p>
 
             <div class="info-box">
@@ -240,7 +240,7 @@ The content for the post goes here...
                     You simply add the key <code>categories</code> to the YAML front matter of any content file and provide an array of category names. Use the actual "name" NOT the slug.
                 </p>
                 <p>
-                    Don't forget the front matter separator! "---"
+                    Don't forget the Front Matter separator! "---"
                 </p>
                 <pre>
 categories: [Web Development]
@@ -264,7 +264,7 @@ Your post content here...
                 on your "team" page.
             </p>
 
-            <ol>
+            <ol class="mb-0">
                 <li>Create folder <code>content/team</code></li>
                 <li>Create file <code>content/team/kevin-rose.md</code></li>
                 <li>Create file <code>content/team/tim-ferriss.md</code></li>
@@ -316,7 +316,7 @@ Your post content here...
             </p>
 
             <table>
-                <caption>Native Front Matter Keys</caption>
+                <caption>URI Mapping</caption>
                 <thead>
                     <tr>
                         <th>When URI Matches</th>
@@ -360,11 +360,11 @@ Your post content here...
 
             <p>Which template is used depends on the type of entity (entry, taxonomy, term) being displayed. You can manually set the template with the <code>template</code> front matter key<p>
 
-            <ol>
+            <ol class="mb-0">
                 <li>FrontMatter key <code>template: your-template-name</code></li>
                 <li>The parent folder name if the file is in a subdirectory of content</li>
                 <li>If the file is an index (index.md), the index template.</li>
-                <li>The entity type (entry, taxonomy, term)</li>
+                <li>The entity type (entry = entry.twig, taxonomy = taxonomy.twig, term = term.twig)</li>
             </ol>
         </div> <!-- .section -->
 

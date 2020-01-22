@@ -17,12 +17,13 @@
         <p>
             Skimpy is a file based CMS that is written with and runs on PHP (Lumen). It is NOT a static site generator. Generators are cumbersome tools. Skimpy is easy to use. You just create a file, and there it is! Skimpy is so easy to use that it might be the easiest CMS/blogging tool that you've ever tried. Don't believe me? Give it a shot!
         </p>
-        <div class="text-center" style="padding: 30px 0;">
+        <div class="text-center" style="padding: 30px 0 10px;">
             <a class="btn btn-md" href="https://skimpycms.com/download/latest">Download Latest</a>
             <a class="btn btn-md" href="{{ skimpy.url('docs') }}">Read the Docs</a>
         </div>
     </div> <!-- .hero -->
-    <div class="features sections">
+
+    <div class="features sections" style="margin-bottom: 60px;">
         <div class="feature">
             <div class="feature-header">
                 <h4>Easy Content Creation</h4>
@@ -42,17 +43,24 @@
             </div>
         </div> <!-- .feature -->
     </div>
-    <div class="docs section">
-        <h2><a class="link-no-style" href="{{ skimpy.url('docs') }}">Get Started</a></h2>
-        <a href="{{ skimpy.url('docs') }}">Read the Docs</i></a>
+
+    <div class="docs section text-center">
+        <a class="btn btn-md" href="{{ skimpy.url('docs') }}">Get Started</a>
     </div> <!-- .docs -->
 {% endblock content %}
 
 {% block footer %}
-    <h4>Monthly Newsletter</h4>
-    <p>Get updates on new Skimpy features. We have a lot of cool stuff planned!</p>
-    <form>
-        <input type="email" name="email" placeholder="you@example.com" />
-        <button>Subscribe</button>
-    </form>
+    <div class="text-center" style="margin-top: 40px;">
+        <h4>Monthly Newsletter</h4>
+        <p style="width: 300px; margin: 0 auto 10px;">
+            Get updates on new Skimpy features.
+            <br />
+            We have a lot of cool stuff planned!
+        </p>
+        <form>
+            <input type="email" name="email" placeholder="you@example.com" style="width: 200px; margin-bottom: 10px;" />
+            <br />
+            <button class="btn btn-md" type="submit">Subscribe</button>
+        </form>
+    </div>
 {% endblock %}
