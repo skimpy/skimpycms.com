@@ -1,0 +1,10 @@
+# The slug is the name of the file w/o extension
+name: Category          # Used in HTML
+plural_name: Categories # Used in HTML
+terms:
+  -
+    name: Web Development
+    slug: web-development
+  -
+    name: Unix
+    slug: unix
