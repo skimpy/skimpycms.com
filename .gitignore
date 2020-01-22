@@ -6,4 +6,3 @@ vendor/
 node_modules/
 storage/
 database/skimpy.sqlite
-public/css/
