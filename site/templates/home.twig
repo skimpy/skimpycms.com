@@ -23,7 +23,7 @@
         </div>
     </div> <!-- .hero -->
 
-    <div class="features sections" style="margin-bottom: 60px;">
+    <div class="features section">
         <div class="feature">
             <div class="feature-header">
                 <h4>Easy Content Creation</h4>
@@ -43,24 +43,26 @@
             </div>
         </div> <!-- .feature -->
     </div>
-
-    <div class="docs section text-center">
-        <a class="btn btn-md" href="{{ skimpy.url('docs') }}">Get Started</a>
-    </div> <!-- .docs -->
 {% endblock content %}
 
 {% block footer %}
-    <div class="text-center" style="margin-top: 40px;">
+    <hr />
+
+    <div class="text-center" style="margin-top: 60px;">
         <h4>Monthly Newsletter</h4>
         <p style="width: 300px; margin: 0 auto 10px;">
             Get updates on new Skimpy features.
             <br />
             We have a lot of cool stuff planned!
         </p>
-        <form>
-            <input type="email" name="email" placeholder="you@example.com" style="width: 200px; margin-bottom: 10px;" />
+        <form style="margin-bottom: 50px;">
+            <input type="email" name="email" placeholder="you@example.com" style="width: 200px; margin-bottom: 15px;" />
             <br />
-            <button class="btn btn-md" type="submit">Subscribe</button>
+            <button class="btn btn-md" type="submit" style="font-size: 14px;">SUBSCRIBE</button>
         </form>
+
+        <a href="https://github.com/skimpy/cms" target="_blank">
+            <img class="github-logo" src="img/github-120.png" alt="Github Logo" title="Skimpy CMS Github Link" />
+        </a>
     </div>
 {% endblock %}

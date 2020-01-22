@@ -99,6 +99,10 @@ pre {
     line-height: 150%;
 }
 
+hr {
+    border: 1px solid #DDD;
+}
+
 table {
     margin-top: 50px;
     margin-bottom: 30px;
@@ -124,6 +128,10 @@ table {
     margin-bottom: 0;
 }
 
+.hide {
+    display: none;
+}
+
 .btn {
     background: $primary;
     color: $onPrimary;
@@ -145,7 +153,6 @@ table {
 }
 
 .alert {
-    // background: #DDD;
     border: 1px solid $primary;
     padding: 8px;
     margin-bottom: 20px;
@@ -218,7 +225,9 @@ table {
 #site-logo {
     img {
         display: block;
-        width: 100%;
+        width: 500px;
+        max-width: 90%;
+        margin: 0 auto 30px;
     }
 }
 
@@ -240,4 +249,10 @@ table {
     li {
         padding-bottom: 5px;
     }
+}
+
+.github-logo {
+    opacity: 0.5;
+    width: 64px;
+    height: 64px;
 }
