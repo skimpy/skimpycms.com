@@ -5,21 +5,21 @@
         <div class="section download">
             <a class="btn btn-md" href="https://skimpycms.com/download/latest">Download Latest</a>
         </div>
-        <div class="section links-list">
+        <nav class="section links-list">
             <a href="#introduction">Introduction</a>
             <a href="#quick-video-overview">Quick Video Overview</a>
             <a href="#installation">Installation</a>
             <a href="#creating-a-blog-post">Creating a Blog Post</a>
             <a href="#adding-front-matter">Adding Front Matter</a>
             <a href="#creating-a-page">Creating a Page</a>
-            <a href="#categorizing-content">Categorizing Content</a>
-            <a href="#tagging-content">Tagging Content</a>
+            <a href="#categorizing-content">Categorizing/Tagging Content</a>
             <a href="#creating-page-types">Creating Page Types</a>
             <a href="#index-pages">Index Pages</a>
-            <a href="#custom-templates">Custom Templates</a>
+            <a href="#template-variables">Template Variables</a>
             <a href="#template-hierarchy">Template Hierarchy</a>
+            <a href="#custom-templates">Custom Templates</a>
             <a href="#how-does-skimpy-work">How does Skimpy work?</a>
-        </div>
+        </nav>
     </aside>
 
     <article>
@@ -83,19 +83,34 @@
                 <li>Visit <code>http://localhost:4000/test-post</code> and voila!</li>
                 <li>Add a markdown header to the file <code># Test Header</code> and refresh. You'll see an h1 tag that reads "Test Header".</li>
             </ol>
+
+            <div class="info-box">
+                <h4>How URIs are determined</h4>
+                <p>
+                    In the example above where we created "test-post", you can see that skimpy uses the filename as the URI to the post.
+                    If you put the file inside a directory "products" and name the file "widget.md". The URI to the file will be <code>/products/widget</code>
+                </p>
+                <code>path/to/skimpy/site/content/products/widget.md => http://localhost:4000/products/widget</code>
+            </div> <!-- .info-box -->
         </div> <!-- .section -->
 
         <div class="section" id="adding-front-matter">
             <h2>Adding Front Matter</h2>
-            <p>
-                You can customize certain properties of an entry using front matter key values. All front matter is optional and Skimpy will use sensible defaults.
-            </p>
-            <div class="alert alert-info">
-                <p>Always use exactly three hyphens "---" to separate front matter from content. Otherwise, you'll get an exception or your file won't parse correctly.
-            </div>
 
             <div class="video">
                 <a href="#">Video Explanation</a>
+            </div>
+
+            <p>
+                You can customize certain properties of an entry using front matter key values. All front matter is optional and Skimpy will use sensible defaults.
+            </p>
+
+            <div class="alert alert-info">
+                <p>Always use exactly three hyphens "---" to separate front matter from content. Otherwise, you'll get an exception or your file won't parse correctly.</p>
+            </div>
+
+            <div class="alert alert-info">
+                <p>Keep in mind that using three hypens "---" on their own line, or at the end of the file without a new line, will cause skimpy to assume it is the front matter separator whether that is what you intend or not.</p>
             </div>
 
             <table>
@@ -183,7 +198,7 @@ The content for the post goes here...
             </p>
             <p>
                 So if you would like to create an "entry" on your site
-                that doesn't show up in your blog feed, then you want to create a page. This is accomplished by creating a subdirectory under
+                that doesn't show up in your default blog feed, then you want to create a page. This is accomplished by creating a subdirectory under
                 the content directory and placing any files that you want to be a "page" inside that directory. You can call the directory anything
                 you want but keep in mind the directory name will be part of the URI to access the page.
             </p>
@@ -192,27 +207,65 @@ The content for the post goes here...
                 "type" key. This essentially is the same as placing the file in a subdirectory. Any file inside a subdirectory has a "type" property with
                 a value matching the name of the parent directory. Try and avoid using the "type" key if you can. Sites that follow the conventions
                 will be more well organized and easier to navigate. You can always just make a "pages" directory and put your pages there. Having a URI
-                segment "pages" proceed the page URI really isn't any big deal.
+                segment "pages" proceed the page URI really isn't a big deal.
             </p>
         </div> <!-- .section -->
 
         <div class="section" id="categorizing-content">
-            <h2>Categorizing Content</h2>
+            <h2>Taxonomies - Categorizing & Tagging Content</h2>
+
             <div class="video">
                 <a href="#">Video Explanation</a>
             </div>
-        </div> <!-- .section -->
 
-        <div class="section" id="tagging-content">
-            <h2>Tagging Content</h2>
+            <p>
+                Content can be categorized or tagged. Categories and tags are referred to as "taxonomies" (like in WordPress).
+                Taxonomies are a way of classifying content. There are already two predefined taxonomies in the default
+                Skimpy installation. And you guessed it, those taxonomies are categories and tags. If you wanted to add your own
+                taxonomy, you would just copy the <code>categories.yaml</code> file and change the values.
+            </p>
 
-            <div class="video">
-                <a href="#">Video Explanation</a>
+            <p>
+                Taxonomies have "terms". In the case of the "categories" taxonomy, the terms are the actual categories.
+                You add new categories by adding a new array to the terms key in the <code>content/taxonomies/categories.yaml</code>
+                file. You simple provide a name for the category and a slug to be used in the URI.
+            </p>
+
+            <div class="info-box">
+                <h4>Public Terms Route</h4>
+                <p>
+                    By default, Skimpy will list links to the terms (category names)
+                    you have defined in the <code>categories.yaml</code> file, when you visit
+                    <code>/categories</code>. If you want to turn this off for a particular taxonomy
+                    (like categories) then you should set the <code>has_public_terms_route</code>
+                    yaml key to <code>false</code> in <code>categories.yaml</code>.
+                </p>
+            </div>
+
+            <div class="info-box">
+                <h4>Assigning Categories/Tags</h4>
+                <p>
+                    You simply add the key <code>categories</code> to the YAML front matter of any content file and provide an array of category names. Use the actual "name" NOT the slug.
+                </p>
+                <p>
+                    Don't forget the front matter separator! "---"
+                </p>
+                <pre>
+categories: [Web Development]
+tags: [Tag 1]
+date: "2020-01-21"
+---
+Your post content here...
+                </pre>
             </div>
         </div> <!-- .section -->
 
         <div class="section" id="creating-page-types">
             <h2>Creating Page Types</h2>
+
+            <div class="video">
+                <a href="#">Video Explanation</a>
+            </div>
 
             <p>
                 Let's say you want to add a page for every person on your team and you want to list those people
@@ -233,29 +286,71 @@ The content for the post goes here...
                     </ul>
                 </li>
             </ol>
-
-            <div class="video">
-                <a href="#">Video Explanation</a>
-            </div>
         </div> <!-- .section -->
 
         <div class="section" id="index-pages">
             <h2>Index Pages</h2>
 
+            <div class="video">
+                <a href="#">Video Explanation</a>
+            </div>
+
+            <p>Index pages are basically an archive of content files inside of a subdirectory of content.</p>
+
             <p>See the example for <a href="#creating-page-types">creating page types</a></p>
 
-            By default, there is no index for files inside a subfolder of the content directory.
-            To turn the index uri on, in other words to make the subfolder name a valid URI on your
-            website, you just create a file inside the subdirectory called <code>index.md</code>
+            <p>
+                By default, there is no index for files inside a subfolder of the content directory.
+                To turn the index uri on, in other words, to make the subfolder name a valid URI on your
+                website, you just create a file inside the subdirectory called <code>index.md</code>
+            </p>
         </div> <!-- .section -->
 
-        <div class="section" id="custom-templates">
-            <h2>Custom Templates</h2>
+        <div class="section" id="template-variables">
+            <h2>URI Mapping & Template Variables</h2>
 
             <div class="video">
                 <a href="#">Video Explanation</a>
             </div>
-        </div> <!-- .section -->
+
+            <p>
+                There are three types of "entities" in Skimpy - <code>entry</code>, <code>taxonomy</code>, and <code>term</code>.
+                The current URI determines what type of entity is queried and what the template variable names are.
+                You can determine what file is being displayed just by looking at the URI. The file structure
+                maps directly to the current URI. Just keep in mind when you create a taxonomy file, you are
+                creating a URL that matches the name of that file. When you create a directory inside content and you place
+                an index.md file in it, you are creating a URL that matches the path to that directory. If that isn't simple
+                enough for you, see the table below.
+            </p>
+
+            <table>
+                <caption>Native Front Matter Keys</caption>
+                <thead>
+                    <tr>
+                        <th>When URI Matches</th>
+                        <th>You'll See</th>
+                        <th>Template Variable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>the name of a content file</td>
+                        <td>The files markdown content</td>
+                        <td><code>entry</code></td>
+                    </tr>
+                    <tr>
+                        <td>the name of a taxonomy file (like "categories")</td>
+                        <td>A listing of links to the terms registered to the taxonomy</td>
+                        <td><code>taxonomy</code></td>
+                    </tr>
+                    <tr>
+                        <td>the name of a term (like a category name)</td>
+                        <td>A listing of links to entries with that term assigned in their Front Matter</td>
+                        <td><code>term</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <div class="section" id="template-hierarchy">
             <h2>Template Hierarchy</h2>
@@ -264,11 +359,49 @@ The content for the post goes here...
                 <a href="#">Video Explanation</a>
             </div>
 
+            <div class="alert alert-info">
+                <p>
+                    Skimpy uses <a href="https://twig.symfony.com/doc/2.x/" target="_blank">Twig</a> for templating. Please see the
+                    <a href="https://twig.symfony.com/doc/2.x/" target="_blank">Twig Docs</a> to discover all the power of Twig.
+                </p>
+            </div>
+
+            <p>Which template is used depends on the type of entity (entry, taxonomy, term) being displayed. You can manually set the template with the <code>template</code> front matter key<p>
+
             <ol>
                 <li>FrontMatter key <code>template: your-template-name</code></li>
                 <li>The parent folder name if the file is in a subdirectory of content</li>
                 <li>If the file is an index (index.md), the index template.</li>
                 <li>The entity type (entry, taxonomy, term)</li>
+            </ol>
+        </div> <!-- .section -->
+
+        <div class="section" id="custom-templates">
+            <h2>Custom Templates</h2>
+
+            <div class="video">
+                <a href="#">Video Explanation</a>
+            </div>
+
+            <div class="alert alert-info">
+                <p>
+                    Skimpy uses <a href="https://twig.symfony.com/doc/2.x/" target="_blank">Twig</a> for templating. Please see the
+                    <a href="https://twig.symfony.com/doc/2.x/" target="_blank">Twig Docs</a> to discover all the power of Twig.
+                </p>
+            </div>
+
+            <p>
+                Skimpy <a href="#template-hierarchy">has some conventions</a> for deciding what template to use. You can override the conventions
+                by adding a <code>template</code> key to the front matter of a content file.
+            </p>
+
+            <h4>Using a custom template</h4>
+            <ol>
+                <li>Create the template <code>site/templates/my-custom-template.twig</code></li>
+                <li>
+                    Open or create a content file and set the template in the Front Matter.<br />
+                    <code>template: my-custom-template</code>
+                </li>
             </ol>
         </div> <!-- .section -->
 
