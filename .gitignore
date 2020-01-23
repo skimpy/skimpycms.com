@@ -5,4 +5,3 @@ package-lock.json
 vendor/
 node_modules/
 storage/
-database/skimpy.sqlite
