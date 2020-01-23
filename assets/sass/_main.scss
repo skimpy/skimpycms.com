@@ -99,6 +99,10 @@ pre {
     line-height: 150%;
 }
 
+pre {
+    overflow-x: scroll;
+}
+
 hr {
     border: 1px solid #DDD;
 }
@@ -263,6 +267,8 @@ table {
         font-size: 14px;
         text-transform: uppercase;
         cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
     }
 }
 
