@@ -45,18 +45,19 @@
                 <a href="#">Video Explanation</a>
             </div>
 
-            <a class="btn btn-large btn-hero" href="http://skimpycms.com/downloads/skimpy.zip">Download Latest</a>
+            <a class="hide btn btn-large btn-hero" href="http://skimpycms.com/downloads/skimpy.zip">Download Latest</a>
 
-            <ol style="margin-bottom: 20px;">
-                <li>Unzip the installation or use composer (see below)</li>
-                <li><code>cd path/to/unzipped/skimpy</code></li>
+            <ol style="margin-bottom: 0px;">
+                <li><code>composer create-project --prefer-dist skimpy/cms skimpy</code></li>
+                <li class="hide">Unzip the installation or use composer (see below)</li>
+                <li><code>cd path/to/skimpy/cms</code></li>
                 <li><code>cp .env.example .env</code></li>
                 <li>Update the .env file to match your preferences/info</li>
                 <li><code>php -S localhost:4000 -t public</code></li>
                 <li>Visit http://localhost:4000</li>
             </ol>
 
-            <span style="line-height: 180%;">
+            <span class="hide" style="line-height: 180%;">
                 <b>You can also install with Composer</b><br /><code>composer create-project --prefer-dist skimpy/cms skimpy</code>
             </span>
         </div> <!-- .section -->
