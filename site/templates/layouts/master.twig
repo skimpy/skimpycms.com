@@ -9,6 +9,14 @@
             {% block metaDescription %}{% endblock %}
             <meta name="author" content="{{ skimpy.site.author }}">
             <link rel="stylesheet" type="text/css" href="css/site.css" />
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20673336-3"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-20673336-3');
+            </script>
         {% endblock head %}
     </head>
     <body>
@@ -61,6 +69,10 @@
                     <a href="https://github.com/skimpy/cms" target="_blank">
                         <img class="github-logo" src="img/github-120.png" alt="Github Logo" title="Skimpy CMS Github Link" />
                     </a>
+                </div>
+
+                <div class="text-light text-center" style="margin-top: 40px;">
+                    Copyright &copy; {{ 'now' | date('Y')  }} <a href="https://twitter.com/jtallant" target="_blank" class="text-light">Justin Tallant</a>
                 </div>
             {% endblock footer %}
         </footer>
