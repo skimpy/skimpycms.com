@@ -6,9 +6,13 @@
             <h1>Documentation</h1>
             <nav class="links-list">
                 <ul>
-                    <li><a href="#introduction">Introduction</a></li>
+                    <li>
+                        <a href="#introduction">Introduction</a>
+                    </li>
                     <li class="hide"><a href="#quick-video-overview">Quick Video Overview</a></li>
-                    <li><a href="#installation">Installation</a></li>
+                    <li>
+                        <a href="#installation">Installation</a>
+                    </li>
                     <li><a href="#creating-a-blog-post">Creating a Blog Post</a></li>
                     <li><a href="#adding-front-matter">Adding Front Matter</a></li>
                     <li><a href="#creating-a-page">Creating a Page</a></li>
@@ -47,6 +51,15 @@
 
             <a class="hide btn btn-large btn-hero" href="http://skimpycms.com/downloads/skimpy.zip">Download Latest</a>
 
+            <h4 id="server-requirements">Server Requiremnts</h4>
+            <ul>
+                <li>PHP >= 7.2</li>
+                <li>OpenSSL PHP Extension</li>
+                <li>PDO PHP Extension</li>
+                <li>Mbstring PHP Extension</li>
+            </ul>
+
+            <h4>Installing Skimpy</h4>
             <ol style="margin-bottom: 0px;">
                 <li><code>composer create-project --prefer-dist skimpy/cms skimpy</code></li>
                 <li class="hide">Unzip the installation or use composer (see below)</li>
@@ -389,7 +402,7 @@ Your post content here...
             </p>
 
             <h4>Using a custom template</h4>
-            <ol>
+            <ol class="mb-0">
                 <li>Create the template <code>site/templates/my-custom-template.twig</code></li>
                 <li>
                     Open or create a content file and set the template in the Front Matter.<br />
@@ -398,30 +411,46 @@ Your post content here...
             </ol>
         </div> <!-- .section -->
 
+        <div class="section" id="deployment">
+            <h2>Deployment</h2>
+            <p>
+                Deploying Skimpy to production is easy. Just make sure your server meets the <a href="#server-requirements">server requirements</a>
+                and create a virtual host with the document root set to the skimpy public folder.
+            </p>
+
+            <h4>Auto Rebuild</h4>
+            <p>
+                What is auto rebuild? Auto rebuild refers to Skimpy scanning your content folder and updating the SQLite DB on every request to your website.
+                This makes development quick and easy. You don't have to worry about "generating" your website. You can turn this feature on or off
+                in your local or production environment. I wouldn't really worry about it too much because it's not going to make much of a difference. That being
+                said I will share my preferred way of deploying with Skimpy.
+            </p>
+
+            <h4>How I Deploy Skimpy</h4>
+            <ol class="mb-0">
+                <li>
+                    <p>I track my SQLite DB with Git so it gets automatically deployed when I push to master. This allows my Skimpy sites to be updated to latest when I push to master without the production sites having to rebuild the database on each request</p>
+                </li>
+                <li>
+                    I set <code>AUTO_REBUILD=false</code> in my <code>.env</code> file <b>on the production site</b> so the database won't be rebuilt on every request.
+                </li>
+            </ol>
+        </div>
+
         <div class="section" id="how-does-skimpy-work">
             <h2>How does Skimpy work?</h2>
             <p>
                 When a request hits your website, Skimpy scans all of the files in your <code>site/content</code> directory, converts them to
-                <a href="https://www.doctrine-project.org/">Doctrine</a> entities, and shoves them into an sqlite database. You don't have to pay any
+                <a href="https://www.doctrine-project.org/" target="_blank">Doctrine</a> entities, and shoves them into an sqlite database. You don't have to pay any
                 attention to the database at all if you don't want. The reason Skimpy converts your content into database records is so that it can take
                 advantage of all of the power of doctrine and SQL in general. The database component in Skimpy is used more like a cache.
-                You should never be editing your databse directly as Skimpy will just wipe out any changes you made automatically the next time your website receives a request.
+                You should never be editing your database directly as Skimpy will just wipe out any changes you made automatically the next time your website receives a request.
             </p>
-            <p>
+            <p class="mb-0">
                 Skimpy uses Doctrine and a database for several reasons. The primary reason for the DB is so that you don't have to "generate" your actual
                 website everytime you make changes to your content, or run a "watch" command that generates the changes when you save a file. Doing
                 things the "generater way" is just nonsense. Generating adds complexity to creating a website or blog. Writing and adding content should be mindless
                 and that's what Skimpy sets out to accomplish.
-            </p>
-            <p>
-                You may be wondering about speed. One of the reasons generators like Jekyll got so popular to begin with is because people thought it was cool
-                that the server wouldn't have to do any work other than serving up HTML and therefore the site would be really fast. The internet is pretty fast
-                these days, as is PHP. It really doesn't take much time to read the filesystem and make inserts into an sqlite database. Unless your site is extremely high traffic and
-                you have hundreds of posts, you need not be concerned about speed at all. BUT, if you do end up with a high traffic site with a lot of content,
-                you can still use Skimpy at blazing speeds. The Skimpy engine has the ability to turn auto generation off and has methods for triggering a build.
-                I haven't decided how I want the configuration to look so the feature is not documented yet. It will probably just be an environment variable that you
-                toggle. Then you can just leave it off in production and when you push your site, you push your sqlite databae with it so it's automatically up to date.
-                Then you won't ever have to run a build command in dev and production is still easily updated.
             </p>
         </div> <!-- .section -->
     </article>
