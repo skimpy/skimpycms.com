@@ -14,9 +14,17 @@
 
 {% block content %}
     <div class="download section">
-        <p>
-            Skimpy is a file based CMS that is written with and runs on PHP (Lumen). It is NOT a static site generator. Generators are cumbersome tools. Skimpy is easy to use. You just create a file, and there it is! Skimpy is so easy to use that it might be the easiest CMS/blogging tool that you've ever tried. Don't believe me? Give it a shot!
+        <p style="font-size: 24px;">
+            Skimpy is a <b>file based CMS that supports markdown</b>. Skimpy <b>IS NOT</b> a static site generator.
         </p>
+
+        <p>
+            Skimpy was born out of frustration with static site generators. Devs love sites that are entirely file based because
+            we love version control and working in flat files. I don't think anyone loves running generators and watching files for changes.
+            Skimpy gives you <b>all the benefits of a file based site with markdown posts and YAML config
+            without the generating</b>.
+        </p>
+
         <div class="text-center" style="padding: 30px 0 10px;">
             <a class="hide btn btn-md" href="http://skimpycms.com/downloads/skimpy.zip">Download Latest</a>
             <a class="btn btn-md" href="{{ skimpy.url('docs') }}">Read the Docs</a>
