@@ -16,8 +16,8 @@
     "url": "git+https://github.com/skimpy/skimpycms.com.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Justin Tallant",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/skimpy/skimpycms.com/issues"
   },
