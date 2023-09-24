@@ -1,6 +1,5 @@
 .env
 .seeded
-composer.lock
 package-lock.json
 vendor/
 node_modules/
