@@ -8,12 +8,11 @@
             "name": "Justin Tallant",
             "email": "jtallant07@gmail.com",
             "homepage": "http://justintallant.com"
-        },
-        {
-            "name": "Casey McLaughlin",
-            "homepage": "https://github.com/caseyamcl"
         }
     ],
+    "scripts": {
+        "serve": "./serve.sh"
+    },
     "keywords": [
         "cms",
         "blog",
@@ -24,7 +23,7 @@
     ],
     "require": {
         "php": "^8.0.2",
-        "skimpy/engine": "^0.2.0"
+        "skimpy/engine": "dev-master"
     },
     "minimum-stability": "dev"
 }

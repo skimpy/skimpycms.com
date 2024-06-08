@@ -1,32 +1,6 @@
 {
-  "name": "skimpycms.com",
-  "version": "1.0.0",
-  "description": "Skimpy allows you to create a flat file based website or blog. It is not a static site generator.",
-  "main": "index.js",
-  "scripts": {
-    "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "npm run development -- --watch",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/skimpy/skimpycms.com.git"
-  },
-  "keywords": [],
-  "author": "Justin Tallant",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/skimpy/skimpycms.com/issues"
-  },
-  "homepage": "https://github.com/skimpy/skimpycms.com#readme",
-  "devDependencies": {
-    "cross-env": "^6.0.3",
-    "laravel-mix": "^5.0.1",
-    "resolve-url-loader": "^3.1.0",
-    "sass": "^1.25.0",
-    "sass-loader": "^8.0.2"
-  }
+    "scripts": {
+        "watch": "sass --watch assets/input.scss:public/css/output.css",
+        "build": "sass --style=compressed assets/input.scss public/css/output.css"
+    }
 }
